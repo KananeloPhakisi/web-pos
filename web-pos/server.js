@@ -1,0 +1,12 @@
+const app = require("./app");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, error => {
+	if (error) {
+		console.log(`Error: `)
+	}
+	console.log(`Server running on port ${port}...`);
+})
