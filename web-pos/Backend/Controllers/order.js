@@ -32,7 +32,7 @@ exports.newOrder = async (req, res) => {
   const orderProdId = detailOrder.map(item => item.prod_id);
 
   for (order in detailOrder) {
-    const product = await getProductById(req, detailOrder[order].prod_id);s
+    const product = await getProductById(req, detailOrder[order].prod_id);
     if (product.length === 0)
       return response.error(
         res,
