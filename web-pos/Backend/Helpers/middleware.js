@@ -12,6 +12,7 @@ exports.validateUser = (req, res, next) => {
         } else {
             req.body.user_id = decoded.id;
             req.body.username = decoded.username;
+            return;
             next();
         }
     });

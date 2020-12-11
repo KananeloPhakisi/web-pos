@@ -2,8 +2,9 @@
   "name": "web-pos",
   "version": "0.0.0",
   "private": true,
+  "main": "server.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon server"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
