@@ -7,11 +7,11 @@ const logger = require('morgan');
 const dotenv = require("dotenv");
 dotenv.config();
 
-const Router = require('./Backend/Routes/index');
+const Router = require('./Routes/index');
 
 const app = express();
 const nodeDev = 'Development';
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(logger('dev'));

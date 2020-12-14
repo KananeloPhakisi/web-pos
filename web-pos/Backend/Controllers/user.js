@@ -28,11 +28,13 @@ exports.registerUser = (req, res) => {
   model
     .getUserByName(req)
     .then((result) => {
-      if (result.length != 0)
+      if (result.length != 0) {
         response.error(
           res,
           "Username has been taken, please change your username"
         );
+        return;
+      }
       model
         .registerUser(req)
         .then((result) => {
@@ -90,11 +92,14 @@ exports.loginUser = (req, res) => {
           user_id: id,
           token: token,
         });
+        return;
       } else {
         response.error(res, "Password incorrect");
+        return;
       }
     } else {
       response.error(res, "User not found");
+      return;
     }
   });
 };
