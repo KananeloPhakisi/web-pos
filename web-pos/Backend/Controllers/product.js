@@ -111,7 +111,7 @@ exports.updateProduct = (req, res) => {
                 .then(result => {
                   model
                     .getProductById(req)
-                    .then(result => response.success(res, result))
+                    .then(result => response.success(res, {result: "Product updated successfully"}))
                     .catch(err => response.error(res, err));
                 })
                 .catch(err => response.error(res, err));

@@ -44,7 +44,7 @@ const searchProduct = (req, sql) => {
 exports.getProducts = (req, page) => {
   let sql = `SELECT product.id, product.name as product_name, product.description, product.image,
             category.name as category, product.price, product.quantity, product.created_at, product.updated_at FROM table_products as product, 
-            tb_categories as category WHERE product.category = category.id `;
+            table_categories as category WHERE product.category = category.id `;
 
   const query = searchProduct(req, sql);
   sql = sortBy(req, query.sql);
@@ -81,7 +81,7 @@ exports.getProductById = (req, orderProdId) => {
   return new Promise((resolve, reject) => {
     const prodId = req.params.prod_id || orderProdId || req.body.prod_id;
     const sql = `SELECT product.id, product.name as product_name, product.description, product.image,
-        category.name as category, product.price, product.quantity, product.created_at, product.updated_at FROM table_products as product, 
+        category.id as category, product.price, product.quantity, product.created_at, product.updated_at FROM table_products as product, 
         table_categories as category WHERE product.category = category.id AND product.id IN (?)`;
 
     conn.query(sql, [prodId], (err, result) => {

@@ -11,7 +11,7 @@ const Router = require('./Routes/index');
 
 const app = express();
 const nodeDev = 'Development';
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(logger('dev'));

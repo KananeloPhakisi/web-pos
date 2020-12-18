@@ -58,7 +58,7 @@ exports.newOrder = async (req, res) => {
 
       if (status.includes(false))
         return response.error(res, "Failed to create new order");
-      else response.success(res, "Created new order");
+      else response.success(res, "Item Sold");
     })
     .catch(err => {
       if (err.code == "ER_DUP_ENTRY") this.newOrder(req, res);
